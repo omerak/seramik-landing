@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#25372d">
 
   <title>Göktürk Seramik Kursu ve Workshop | Giz Seramik</title>
-  <meta name="description" content="Göktürk, Eyüpsultan'da başlangıç seviyesine uygun yetişkin ve çocuk seramik dersleri, tek günlük workshoplar ve özel etkinlikler. Giz Seramik'e ulaşın.">
+  <meta name="description" content="Göktürk, İstanbul'da yetişkin ve çocuk seramik dersleri, tek günlük seramik ve tufting workshopları. Giz Seramik'te programları keşfedin, bilgi alın.">
   <meta name="keywords" content="Göktürk seramik kursu, Göktürk seramik atölyesi, İstanbul seramik workshop, Eyüpsultan seramik kursu, çocuk seramik dersi, yetişkin seramik dersi, Giz Seramik">
   <meta name="author" content="Giz Seramik">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -19,10 +19,17 @@
   <meta property="og:site_name" content="Giz Seramik">
   <meta property="og:url" content="https://gizseramik.com/">
   <meta property="og:title" content="Göktürk'te Çamurla Kendine Alan Aç | Giz Seramik">
-  <meta property="og:description" content="Yetişkin ve çocuk seramik dersleri, günlük workshoplar ve özel etkinlikler için Göktürk'teki butik atölyemizi keşfedin.">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:description" content="Göktürk'te yetişkin ve çocuk seramik dersleri, seramik ve tufting workshopları, özel etkinlikler. Giz Seramik'te üretmeye başlayın.">
+  <meta property="og:image" content="https://gizseramik.com/assets/seramikpano-big.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="700">
+  <meta property="og:image:height" content="442">
+  <meta property="og:image:alt" content="Giz Seramik atölyesinden el yapımı seramik melek figürlü duvar panosu">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Göktürk Seramik Kursu ve Workshop | Giz Seramik">
-  <meta name="twitter:description" content="Göktürk'te yetişkin ve çocuk seramik dersleri, günlük workshoplar ve özel etkinlikler.">
+  <meta name="twitter:description" content="Göktürk'te yetişkin ve çocuk seramik dersleri, seramik ve tufting workshopları, özel etkinlikler.">
+  <meta name="twitter:image" content="https://gizseramik.com/assets/seramikpano-big.jpg">
+  <meta name="twitter:image:alt" content="Giz Seramik atölyesinden el yapımı seramik melek figürlü duvar panosu">
 
   <link rel="icon" type="image/png" href="./assets/giz-seramik-logo-2.png">
 
@@ -33,8 +40,14 @@
     "@id": "https://gizseramik.com/#business",
     "name": "Giz Seramik",
     "alternateName": "Atölye Giz Seramik",
-    "description": "Göktürk'te yetişkin ve çocuk seramik dersleri, günlük workshoplar ve özel etkinlikler sunan butik seramik atölyesi.",
+    "description": "Göktürk'te yetişkin ve çocuk seramik dersleri, seramik ve tufting workshopları ve özel etkinlikler sunan butik atölye.",
     "url": "https://gizseramik.com/",
+    "logo": "https://gizseramik.com/assets/giz-seramik-logo.png",
+    "image": [
+      "https://gizseramik.com/assets/seramikpano-big.jpg",
+      "https://gizseramik.com/assets/seramik-melek-kanadi-big.jpg",
+      "https://gizseramik.com/assets/tufting.jpg"
+    ],
     "telephone": "+90 541 569 32 54",
     "address": {
       "@type": "PostalAddress",
@@ -51,14 +64,27 @@
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Seramik dersleri ve etkinlikleri",
+      "name": "Seramik dersleri, workshoplar ve etkinlikler",
       "itemListElement": [
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Yetişkin seramik dersleri"}},
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Çocuk seramik dersleri"}},
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tek günlük seramik workshop"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Özel seramik etkinlikleri"}}
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Özel seramik etkinlikleri"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tufting Workshop"}}
       ]
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://gizseramik.com/#website",
+    "url": "https://gizseramik.com/",
+    "name": "Giz Seramik",
+    "alternateName": "Atölye Giz Seramik",
+    "inLanguage": "tr-TR",
+    "publisher": {"@id": "https://gizseramik.com/#business"}
   }
   </script>
   <script type="application/ld+json">
@@ -317,6 +343,17 @@
     .program-card li { display: flex; align-items: center; gap: 5px; }
     .program-card li svg { width: 14px; color: var(--clay); }
     .program-card > a { display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid currentColor; font-size: .78rem; font-weight: 700; }
+    @media (min-width: 721px) {
+      .program-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr;
+        column-gap: 48px; min-height: 0; padding: 42px 0; border-right: 0;
+      }
+      .program-card:last-child:nth-child(odd) .program-top { grid-column: 1 / -1; margin-bottom: 30px; }
+      .program-card:last-child:nth-child(odd) h3 { grid-column: 1; grid-row: 2; }
+      .program-card:last-child:nth-child(odd) > p { grid-column: 2; grid-row: 2 / 4; max-width: none; }
+      .program-card:last-child:nth-child(odd) ul { grid-column: 1; grid-row: 3; margin-bottom: 0; }
+      .program-card:last-child:nth-child(odd) > a { grid-column: 2; justify-self: start; }
+    }
 
     /* Story */
     .story { padding: 140px 0; color: #f8f1e8; background: var(--forest); overflow: hidden; }
@@ -365,6 +402,7 @@
     .gallery-item.wide { grid-column: span 8; }
     .gallery-item.tall { grid-row: span 2; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+    .gallery-item.tufting img { object-fit: contain; }
     .gallery-item:hover img { transform: scale(1.04); }
     .gallery-item span {
       position: absolute; right: 14px; bottom: 14px; left: 14px; padding: 10px 14px;
@@ -522,7 +560,7 @@
       .hero-foot { bottom: 20px; }
       .hero-foot p { display: none; }
       .program-grid { grid-template-columns: 1fr; }
-      .program-card, .program-card:nth-child(even) { min-height: 0; padding: 34px 5px; border-right: 0; }
+      .program-card, .program-card:nth-child(odd), .program-card:nth-child(even) { min-height: 0; padding: 34px 5px; border-right: 0; }
       .program-top { margin-bottom: 30px; }
       .story { padding: 95px 0; }
       .story-grid { gap: 55px; }
@@ -535,6 +573,7 @@
       .gallery-item, .gallery-item.wide { grid-column: span 1; }
       .gallery-item.tall { grid-row: span 2; }
       .gallery-item:first-child { grid-column: span 2; }
+      .gallery-item.tufting { grid-column: span 2; grid-row: span 2; }
       .founder { padding-bottom: 90px; }
       .founder-card { grid-template-columns: 1fr; gap: 30px; padding: 36px 24px; }
       .founder-seal { width: 145px; height: 145px; }
@@ -672,7 +711,7 @@
       <div class="container">
         <div class="section-head reveal">
           <div><p class="eyebrow">Programlar</p><h2>Her yaşa, her meraka<br>bir başlangıç.</h2></div>
-          <p>İlk kez çamura dokunuyor ya da üretiminizi derinleştirmek istiyor olun; size uygun bir masa mutlaka var.</p>
+          <p>İster çamurla şekil verin, ister ipliklerle desen oluşturun; merakınıza ve üretme isteğinize uygun bir atölye deneyimi sizi bekliyor.</p>
         </div>
 
         <div class="program-grid">
@@ -703,6 +742,13 @@
             <p>Doğum günü, anne–çocuk buluşması, arkadaş grubu ya da kurum etkinlikleri için katılımcılara özel seramik deneyimleri.</p>
             <ul><li><svg><use href="#i-check"/></svg> Özel grup planlama</li><li><svg><use href="#i-check"/></svg> Kişiye göre içerik</li><li><svg><use href="#i-check"/></svg> Butik deneyim</li></ul>
             <a href="https://wa.me/905415693254" target="_blank" rel="noopener">Uygunluk sor <svg><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="program-card reveal" id="tufting-workshop">
+            <div class="program-top"><span class="program-number">05</span><span class="program-tag">Renk &amp; doku</span></div>
+            <h3>Tufting Workshop</h3>
+            <p>İpliklerle kendi deseninize hayat verin. Renkleri ve dokuları bir araya getirerek tufting tekniğiyle yaratıcı bir üretim deneyimi yaşayın. Workshop tarihleri, süre ve katılım detayları için bize ulaşın.</p>
+            <ul><li><svg><use href="#i-check"/></svg> İpliklerle tasarım</li><li><svg><use href="#i-check"/></svg> Renk ve desen</li><li><svg><use href="#i-check"/></svg> Yaratıcı üretim</li></ul>
+            <a href="https://wa.me/905415693254?text=Merhaba%2C%20Tufting%20Workshop%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="Tufting Workshop için uygunluk sor">Uygunluk sor <svg><use href="#i-arrow"/></svg></a>
           </article>
         </div>
       </div>
@@ -743,12 +789,13 @@
           <a class="gallery-head-link" href="https://www.instagram.com/gizseramik/" target="_blank" rel="noopener"><svg><use href="#i-instagram"/></svg> Instagram'da takip et <svg><use href="#i-arrow"/></svg></a>
         </div>
         <div class="gallery-grid reveal" id="gallery">
-          <button class="gallery-item wide" type="button" data-src="./assets/seramikpano-big.jpg" data-label="Duvar panosu"><img src="./assets/seramikpano-big.jpg" alt="El yapımı seramik melek figürlü duvar panosu" width="700" height="442"><span>Duvar panosu</span></button>
-          <button class="gallery-item tall" type="button" data-src="./assets/seramik-melek-kanadi-big.jpg" data-label="Melek kanadı"><img src="./assets/seramik-melek-kanadi-big.jpg" alt="Giz Seramik atölyesinde yapılmış seramik melek kanadı" width="700" height="442" loading="lazy"><span>Melek kanadı</span></button>
+          <button class="gallery-item wide" type="button" data-src="./assets/seramikpano-big.jpg" data-label="Duvar panosu"><img src="./assets/seramikpano-big.jpg" alt="El yapımı seramik melek figürlü duvar panosu" width="700" height="442"><span>Seramik Duvar panosu</span></button>
+          <button class="gallery-item tall" type="button" data-src="./assets/seramik-melek-kanadi-big.jpg" data-label="Melek kanadı"><img src="./assets/seramik-melek-kanadi-big.jpg" alt="Giz Seramik atölyesinde yapılmış seramik heykel melek kanadı" width="700" height="442" loading="lazy"><span>Seramik Heykel</span></button>
           <button class="gallery-item" type="button" data-src="./assets/seramikinsan-big.jpg" data-label="Seramik figürler"><img src="./assets/seramikinsan-big.jpg" alt="Elle şekillendirilmiş seramik insan figürleri" width="700" height="442" loading="lazy"><span>Seramik figürler</span></button>
-          <button class="gallery-item" type="button" data-src="./assets/seramikkase.png" data-label="İlk kasem"><img src="./assets/seramikkase.png" alt="Atölyede üretilen renkli el yapımı seramik kase" width="383" height="198" loading="lazy"><span>İlk kasem</span></button>
-          <button class="gallery-item wide" type="button" data-src="./assets/seramiksaksi.png" data-label="Seramik saksı"><img src="./assets/seramiksaksi.png" alt="Kaktüs için tasarlanmış el yapımı seramik saksı" width="383" height="198" loading="lazy"><span>Seramik saksı</span></button>
-          <button class="gallery-item" type="button" data-src="./assets/gizseramik.png" data-label="Atölyeden"><img src="./assets/gizseramik.png" alt="Giz Seramik atölyesinden renkli seramik çalışma" width="275" height="180" loading="lazy"><span>Atölyeden</span></button>
+          <button class="gallery-item" type="button" data-src="./assets/seramikkase.png" data-label="İlk kasem"><img src="./assets/seramikkase.png" alt="Atölyede üretilen renkli el yapımı stoneware kase" width="383" height="198" loading="lazy"><span>Stoneware kase</span></button>
+          <button class="gallery-item" type="button" data-src="./assets/seramiksaksi.png" data-label="Seramik saksı"><img src="./assets/seramiksaksi.png" alt="Kaktüs için tasarlanmış el yapımı seramik saksı" width="383" height="198" loading="lazy"><span>Seramik saksı</span></button>
+          <button class="gallery-item" type="button" data-src="./assets/gizseramik.png" data-label="Atölyeden"><img src="./assets/gizseramik.png" alt="Giz Seramik atölyesinden renkli el yapımı seramik karınca" width="275" height="180" loading="lazy"><span>El yapımı seramik karınca</span></button>
+          <button class="gallery-item tufting" type="button" data-src="./assets/tufting.jpg" data-label="Tufting Workshop"><img src="./assets/tufting.jpg" alt="Sarı zemin üzerinde yeşil leopar başı desenli tufting çalışması" width="1238" height="1238" loading="lazy"><span>Tufting Workshop</span></button>
         </div>
       </div>
     </section>
