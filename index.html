@@ -24,7 +24,7 @@
   <meta name="twitter:title" content="Göktürk Seramik Kursu ve Workshop | Giz Seramik">
   <meta name="twitter:description" content="Göktürk'te yetişkin ve çocuk seramik dersleri, günlük workshoplar ve özel etkinlikler.">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2325372d'/%3E%3Cpath d='M16 25h32c0 15-6 23-16 23S16 40 16 25Z' fill='%23e9a77f'/%3E%3Cpath d='M22 20c3-5 17-5 20 0' fill='none' stroke='%23f6f0e5' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="./assets/giz-seramik-logo-2.png">
 
   <script type="application/ld+json">
   {
@@ -126,6 +126,7 @@
     body.menu-open { overflow: hidden; }
     img { display: block; width: 100%; height: auto; }
     a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--clay); outline-offset: 5px; }
     button, summary { font: inherit; }
     button { color: inherit; }
     address { font-style: normal; }
@@ -163,22 +164,32 @@
     /* Header */
     .site-header {
       position: fixed; z-index: 100; inset: 0 0 auto;
-      height: 82px; transition: .3s ease;
+      height: 96px; background: rgba(245, 239, 229, .94);
+      border-bottom: 1px solid var(--line);
+      transition: height .3s ease, background .3s ease, box-shadow .3s ease;
     }
     .site-header.scrolled {
-      height: 70px; background: rgba(245, 239, 229, .9);
-      border-bottom: 1px solid var(--line); backdrop-filter: blur(18px);
+      height: 80px; background: rgba(245, 239, 229, .94);
+      backdrop-filter: blur(18px); box-shadow: 0 6px 24px rgba(30, 43, 36, .05);
     }
     .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; }
-    .brand-mark {
-      width: 42px; height: 42px; display: grid; place-items: center;
-      color: var(--paper); background: var(--forest); border-radius: 50%;
+    .brand { display: inline-flex; align-items: center; flex-shrink: 0; }
+    .brand-logo { width: 78px; height: 78px; object-fit: contain; }
+    .header-brand { gap: 15px; }
+    .brand-emblem {
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      width: 66px; height: 70px; overflow: hidden;
+      border-radius: 26px 26px 12px 12px;
+      transition: border-color .2s ease, background .2s ease;
     }
-    .brand-mark svg { width: 27px; height: 27px; fill: var(--clay-light); }
-    .brand-mark svg path:nth-child(n+2) { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-    .brand strong { display: block; font-family: var(--serif); font-size: 1.35rem; line-height: 1; letter-spacing: .08em; }
-    .brand small { display: block; margin-top: 4px; font-size: .55rem; line-height: 1; letter-spacing: .18em; }
+    .brand-emblem .brand-logo { width: 76px; height: 76px; flex-shrink: 0; }
+    .brand-copy { display: grid; gap: 7px; }
+    .brand-name { font-family: var(--serif); font-size: 1.65rem; font-weight: 400; line-height: 1; letter-spacing: -.025em; }
+    .brand-location { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: .58rem; font-weight: 600; line-height: 1.3; letter-spacing: .15em; text-transform: uppercase; }
+    .brand-location::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--clay); }
+    .header-brand:hover .brand-emblem { border-color: var(--clay); background: var(--paper); }
+    .site-header.scrolled .brand-emblem { width: 58px; height: 60px; }
+    .site-header.scrolled .brand-emblem .brand-logo { width: 66px; height: 66px; }
     .desktop-nav { display: flex; align-items: center; gap: 34px; }
     .desktop-nav a { position: relative; font-size: .78rem; font-weight: 650; letter-spacing: .04em; }
     .desktop-nav a::after {
@@ -197,9 +208,13 @@
       background: rgba(255,255,255,.35); border-radius: 50%;
     }
     .menu-button span { display: block; width: 18px; height: 1.5px; margin: 5px auto; background: var(--ink); transition: .25s; }
+    .menu-button[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+    .menu-button[aria-expanded="true"] span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+    body.menu-open .site-header { background: var(--paper); }
     .mobile-nav {
       display: none; position: fixed; z-index: 90; inset: 0;
-      padding: 120px 28px 40px; color: white; background: var(--forest);
+      padding: 120px 28px 40px; overflow-y: auto; overscroll-behavior: contain;
+      color: white; background: var(--forest);
     }
     .mobile-nav a { display: block; padding: 11px 0; font-family: var(--serif); font-size: 2.35rem; }
     .mobile-nav .mobile-nav-contact { margin-top: 30px; color: #e8c3a7; font-family: var(--sans); font-size: 1rem; }
@@ -265,7 +280,7 @@
     }
     .hero-stamp > svg { position: absolute; inset: 8px; width: 104px; height: 104px; animation: spin 24s linear infinite; }
     .hero-stamp text { fill: currentColor; font-family: var(--sans); font-size: 8.1px; font-weight: 700; letter-spacing: 1.35px; }
-    .hero-stamp .brand-mark { width: 46px; height: 46px; background: transparent; }
+    .hero-stamp .brand-logo { width: 68px; height: 68px; padding: 5px; background: var(--paper); border-radius: 50%; }
     .hero-line { position: absolute; width: 70px; height: 70px; border: 2px solid var(--clay); border-radius: 50%; opacity: .5; }
     .hero-line.one { top: 0; left: 8%; border-right-color: transparent; }
     .hero-line.two { right: 17%; bottom: -4px; width: 42px; height: 42px; border-bottom-color: transparent; }
@@ -436,7 +451,9 @@
     /* Footer */
     .site-footer { padding: 70px 0 24px; color: #c6d0c9; background: #19251f; }
     .footer-top { display: grid; grid-template-columns: 1fr 1fr .7fr .7fr; gap: 60px; padding-bottom: 55px; }
-    .brand.footer { color: white; align-self: start; }
+    .brand.footer { color: white; align-self: start; flex-direction: column; align-items: flex-start; gap: 18px; }
+    .brand.footer .brand-logo { width: 96px; height: 96px; background: var(--paper); border-radius: 36px 36px 14px 14px; }
+    .brand.footer .brand-location { color: #c6d0c9; }
     .footer-top > p { margin: 0; color: white; font-family: var(--serif); font-size: 1.65rem; line-height: 1.25; }
     .footer-top nav a, .footer-social a { display: flex; align-items: center; gap: 5px; width: fit-content; margin-bottom: 10px; font-size: .78rem; }
     .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); font-size: .65rem; letter-spacing: .07em; text-transform: uppercase; }
@@ -445,7 +462,8 @@
     .not-found { min-height: 100vh; display: grid; place-content: center; text-align: center; }
 
     /* Motion */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s, transform .75s; }
+    .reveal { transition: opacity .75s, transform .75s; }
+    .reveal.pending { opacity: 0; transform: translateY(28px); }
     .reveal.visible { opacity: 1; transform: none; }
     .hero-copy > * { animation: enter .8s both; }
     .hero-copy > :nth-child(2) { animation-delay: .1s; }
@@ -476,13 +494,16 @@
     }
 
     @media (max-width: 720px) {
-      html { scroll-padding-top: 70px; }
+      html { scroll-padding-top: 88px; }
       body { padding-bottom: 66px; }
       .container { width: min(calc(100% - 28px), var(--container)); }
-      .site-header, .site-header.scrolled { height: 68px; }
+      .site-header, .site-header.scrolled { height: 80px; }
       .header-cta { display: none; }
-      .brand strong { font-size: 1.17rem; }
-      .brand small { font-size: .49rem; }
+      .header-brand { gap: 11px; }
+      .site-header .brand-emblem, .site-header.scrolled .brand-emblem { width: 52px; height: 56px; border-radius: 21px 21px 10px 10px; }
+      .site-header .brand-emblem .brand-logo, .site-header.scrolled .brand-emblem .brand-logo { width: 62px; height: 62px; }
+      .header-brand .brand-name { font-size: 1.4rem; }
+      .header-brand .brand-location { font-size: .5rem; letter-spacing: .1em; }
       .section { padding: 90px 0; }
       .section-head { margin-bottom: 45px; }
       .section-head h2, .story-copy h2, .faq-copy h2 { font-size: clamp(2.8rem, 13vw, 4.2rem); }
@@ -497,6 +518,7 @@
       .hero-stamp { width: 92px; height: 92px; right: -5px; bottom: 15px; }
       .hero-stamp > svg { inset: 4px; width: 84px; height: 84px; }
       .hero-stamp text { font-size: 7px; }
+      .hero-stamp .brand-logo { width: 54px; height: 54px; }
       .hero-foot { bottom: 20px; }
       .hero-foot p { display: none; }
       .program-grid { grid-template-columns: 1fr; }
@@ -538,7 +560,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
+      .reveal.pending { opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -572,11 +594,9 @@
 
   <header class="site-header" id="header">
     <div class="container header-inner">
-      <a class="brand" href="#anasayfa" aria-label="Giz Seramik ana sayfa">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><path d="M9 18h30c0 14-5.8 21-15 21S9 32 9 18Z"/><path d="M14 14c3-5 17-5 20 0"/><path d="M16 25c5 4 11 4 16 0"/></svg>
-        </span>
-        <span><strong>GİZ</strong><small>SERAMİK · GÖKTÜRK</small></span>
+      <a class="brand header-brand" href="#anasayfa" aria-label="Giz Seramik ana sayfa">
+        <span class="brand-emblem"><img class="brand-logo" src="./assets/giz-seramik-logo-2.png" alt="" width="1254" height="1254"></span>
+        <span class="brand-copy"><span class="brand-name">Giz Seramik</span><span class="brand-location">Göktürk · Seramik Atölyesi</span></span>
       </a>
 
       <nav class="desktop-nav" aria-label="Ana menü">
@@ -637,9 +657,7 @@
               <defs><path id="circle" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs>
               <text><textPath href="#circle">ELLE ŞEKİLLENDİR · YAVAŞLA · ÜRET · </textPath></text>
             </svg>
-            <span class="brand-mark">
-              <svg viewBox="0 0 48 48"><path d="M9 18h30c0 14-5.8 21-15 21S9 32 9 18Z"/><path d="M14 14c3-5 17-5 20 0"/><path d="M16 25c5 4 11 4 16 0"/></svg>
-            </span>
+            <img class="brand-logo" src="./assets/giz-seramik-logo-2.png" alt="" width="1254" height="1254">
           </div>
           <span class="hero-line one"></span>
           <span class="hero-line two"></span>
@@ -800,9 +818,9 @@
 
   <footer class="site-footer">
     <div class="container footer-top">
-      <a class="brand footer" href="#anasayfa">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 18h30c0 14-5.8 21-15 21S9 32 9 18Z"/><path d="M14 14c3-5 17-5 20 0"/><path d="M16 25c5 4 11 4 16 0"/></svg></span>
-        <span><strong>GİZ</strong><small>SERAMİK · GÖKTÜRK</small></span>
+      <a class="brand footer" href="#anasayfa" aria-label="Giz Seramik ana sayfa">
+        <img class="brand-logo" src="./assets/giz-seramik-logo.png" alt="Giz Seramik" width="1254" height="1254" loading="lazy">
+        <span class="brand-copy"><span class="brand-name">Giz Seramik</span><span class="brand-location">Göktürk · İstanbul</span></span>
       </a>
       <p>Toprakla yavaşla.<br>Ellerinle üret.</p>
       <nav aria-label="Alt menü"><a href="#programlar">Programlar</a><a href="#atolye">Atölye</a><a href="#galeri">Galeri</a><a href="#sss">S.S.S.</a></nav>
@@ -832,6 +850,8 @@
       const lightboxImage = document.getElementById("lightboxImage");
       const lightboxCaption = document.getElementById("lightboxCaption");
       const galleryItems = [...document.querySelectorAll(".gallery-item")];
+      const menuBackground = [document.querySelector("main"), document.querySelector(".site-footer"), document.querySelector(".mobile-contact")];
+      const mobileLayout = window.matchMedia("(max-width: 1000px)");
       let activeIndex = 0;
 
       document.getElementById("year").textContent = new Date().getFullYear();
@@ -839,20 +859,52 @@
       updateHeader();
       window.addEventListener("scroll", updateHeader, { passive: true });
 
-      const closeMenu = () => {
+      const closeMenu = (restoreFocus = false) => {
         mobileNav.classList.remove("open");
         document.body.classList.remove("menu-open");
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute("aria-label", "Menüyü aç");
+        menuBackground.forEach((element) => { element.inert = false; });
+        if (restoreFocus) menuButton.focus();
       };
 
       menuButton.addEventListener("click", () => {
-        const isOpen = mobileNav.classList.toggle("open");
-        document.body.classList.toggle("menu-open", isOpen);
-        menuButton.setAttribute("aria-expanded", String(isOpen));
-        menuButton.setAttribute("aria-label", isOpen ? "Menüyü kapat" : "Menüyü aç");
+        if (mobileNav.classList.contains("open")) {
+          closeMenu(true);
+          return;
+        }
+        mobileNav.classList.add("open");
+        document.body.classList.add("menu-open");
+        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.setAttribute("aria-label", "Menüyü kapat");
+        menuBackground.forEach((element) => { element.inert = true; });
+        mobileNav.querySelector("a").focus();
       });
-      mobileNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+      mobileNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu(true)));
+      header.querySelector(".brand").addEventListener("click", () => closeMenu());
+      mobileLayout.addEventListener("change", (event) => {
+        if (!event.matches) closeMenu();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (!mobileNav.classList.contains("open")) return;
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closeMenu(true);
+        }
+        if (event.key === "Tab") {
+          const controls = [...header.querySelectorAll("a, button"), ...mobileNav.querySelectorAll("a")]
+            .filter((element) => element.getClientRects().length > 0);
+          const first = controls[0];
+          const last = controls[controls.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });
 
       const showImage = (index) => {
         activeIndex = (index + galleryItems.length) % galleryItems.length;
@@ -884,11 +936,15 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible");
+              entry.target.classList.remove("pending");
               observer.unobserve(entry.target);
             }
           });
         }, { threshold: .12 });
-        document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+        document.querySelectorAll(".reveal").forEach((element) => {
+          element.classList.add("pending");
+          observer.observe(element);
+        });
       } else {
         document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
       }
